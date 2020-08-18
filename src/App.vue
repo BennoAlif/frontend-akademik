@@ -2,26 +2,27 @@
   <v-app>
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list>
-        <v-list-item link to="beranda">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
+        <v-list-item link to="studi-mahasiswa">
           <v-list-item-content>
-            <v-list-item-title>Beranda</v-list-item-title>
+            <v-list-item-title>Studi Mahasiswa</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link to="laporan">
-          <v-list-item-action>
-            <v-icon>mdi-file-chart</v-icon>
-          </v-list-item-action>
+        <v-list-item link to="matakuliah">
           <v-list-item-content>
-            <v-list-item-title>Laporan</v-list-item-title>
+            <v-list-item-title>Mata Kuliah</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="mahasiswa">
+          <v-list-item-content>
+            <v-list-item-title>Mahasiswa</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="dosen">
+          <v-list-item-content>
+            <v-list-item-title>Dosen</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item link to="fakultas">
-          <v-list-item-action>
-            <v-icon>mdi-shape</v-icon>
-          </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Fakultas & Jurusan</v-list-item-title>
           </v-list-item-content>

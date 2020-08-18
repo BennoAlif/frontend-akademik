@@ -50,7 +50,7 @@
             :key="item.kode_fakultas"
           >
             <v-expansion-panel-header>
-              <span class="text-h6">{{ item.nama_fakultas }}</span>
+              <h3 class="font-weight-light">{{ item.nama_fakultas }}</h3>
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <v-btn
