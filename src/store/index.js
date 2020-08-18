@@ -21,6 +21,18 @@ export default new Vuex.Store({
     delete_fakultas(state, data) {
       state.fakultas.splice(data.index, 1);
     },
+    add_jurusan(state, data) {
+      state.fakultas[data.index].jurusan.push(data.data);
+    },
+    update_jurusan(state, data) {
+      Object.assign(
+        state.fakultas[data.index].jurusan[data.indexJurusan],
+        data.data
+      );
+    },
+    delete_jurusan(state, data) {
+      state.fakultas[data.id].jurusan.splice(data.index, 1);
+    },
   },
   actions: {
     getAllFakultas({ commit }) {
@@ -60,7 +72,7 @@ export default new Vuex.Store({
     updateFakultas({ commit }, data) {
       return new Promise((resolve, reject) => {
         Axios({
-          url: `fakultas/${data.data.kode_fakultas}`,
+          url: `fakultas/${data.where}`,
           method: "PUT",
           data: data.data,
         })
@@ -82,6 +94,56 @@ export default new Vuex.Store({
         })
           .then((result) => {
             commit("delete_fakultas", data);
+            resolve(result);
+          })
+          .catch((err) => {
+            console.log(err);
+            reject(err);
+          });
+      });
+    },
+    addJurusan({ commit }, data) {
+      return new Promise((resolve, reject) => {
+        Axios({
+          url: "jurusan",
+          method: "POST",
+          data: data.data,
+        })
+          .then((result) => {
+            commit("add_jurusan", data);
+            resolve(result);
+          })
+          .catch((err) => {
+            console.log(err);
+            reject(err);
+          });
+      });
+    },
+    updateJurusan({ commit }, data) {
+      return new Promise((resolve, reject) => {
+        Axios({
+          url: `jurusan/${data.where}`,
+          method: "PUT",
+          data: data.data,
+        })
+          .then((result) => {
+            commit("update_jurusan", data);
+            resolve(result);
+          })
+          .catch((err) => {
+            console.log(err);
+            reject(err);
+          });
+      });
+    },
+    deleteJurusan({ commit }, data) {
+      return new Promise((resolve, reject) => {
+        Axios({
+          url: `jurusan/${data.kode_jurusan}`,
+          method: "DELETE",
+        })
+          .then((result) => {
+            commit("delete_jurusan", data);
             resolve(result);
           })
           .catch((err) => {
