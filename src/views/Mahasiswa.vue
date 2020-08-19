@@ -123,6 +123,9 @@
               mdi-delete
             </v-icon>
           </template>
+          <template v-slot:item.jenis_kelamin="{ item }">
+            {{ jk(item.jenis_kelamin) }}
+          </template>
         </v-data-table>
       </v-col>
     </v-row>
@@ -201,6 +204,9 @@ export default {
   },
 
   methods: {
+    jk(val) {
+      return val == "L" ? "Laki-laki" : "Perempuan";
+    },
     editItem(item) {
       this.nim = item.nim;
       this.editedIndex = this.mahasiswa.indexOf(item);

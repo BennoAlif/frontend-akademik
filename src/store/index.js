@@ -426,6 +426,7 @@ export default new Vuex.Store({
         })
           .then((result) => {
             commit("add_krs", data);
+            console.log(data);
             resolve(result);
           })
           .catch((err) => {
